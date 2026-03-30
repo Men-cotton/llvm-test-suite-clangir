@@ -76,7 +76,7 @@ void print_array(int m, int n,
 /* Main computational kernel. The whole function will be timed,
    including the call and return. */
 static
-void kernel_symm(int m, int n,
+void kernel_symm_StrictFP(int m, int n,
 		 DATA_TYPE alpha,
 		 DATA_TYPE beta,
 		 DATA_TYPE POLYBENCH_2D(C,M,N,m,n),
