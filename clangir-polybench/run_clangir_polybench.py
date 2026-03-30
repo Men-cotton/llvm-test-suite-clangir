@@ -10,12 +10,14 @@ from pathlib import Path
 
 
 HOME = Path.home()
+SCRIPT_DIR = Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parent
 DEFAULT_LLVM_PROJECT = HOME / "toy/oss/llvm-project"
 DEFAULT_CLANG = DEFAULT_LLVM_PROJECT / "build-mlir/bin/clang"
 DEFAULT_POLYBENCH_ROOT = (
-    HOME / "toy/oss/llvm-test-suite/SingleSource/Benchmarks/Polybench"
+    REPO_ROOT / "SingleSource/Benchmarks/Polybench"
 )
-DEFAULT_OUTPUT_DIR = DEFAULT_LLVM_PROJECT / "agent-clangir-doc-and-script/polybench/output"
+DEFAULT_OUTPUT_DIR = SCRIPT_DIR / "output"
 
 DATASET_MACROS = {
     "mini": "MINI_DATASET",

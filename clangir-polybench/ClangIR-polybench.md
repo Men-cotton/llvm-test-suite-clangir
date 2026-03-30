@@ -7,7 +7,7 @@
 - `llvm-project` は `~/toy/oss/llvm-project`
 - ClangIR 対応ビルドは `~/toy/oss/llvm-project/build-mlir`
 - PolyBench は `~/toy/oss/llvm-test-suite/SingleSource/Benchmarks/Polybench`
-- この文書と補助スクリプトは `~/toy/oss/llvm-project/agent-clangir-doc-and-script/polybench` に置く
+- この文書と補助スクリプトは `~/toy/oss/llvm-test-suite/clangir-polybench` に置く
 
 ## 方針
 
@@ -33,7 +33,7 @@ strict C99 を維持したい場合は、代わりに `-D_POSIX_C_SOURCE=200112L
 
 ## 補助スクリプト
 
-毎回パスとフラグを手で並べるのは面倒なので、`agent-clangir-doc-and-script/polybench/run_clangir_polybench.py` を使う。
+毎回パスとフラグを手で並べるのは面倒なので、`clangir-polybench/run_clangir_polybench.py` を使う。
 
 このスクリプトは次をやる。
 
@@ -48,43 +48,43 @@ strict C99 を維持したい場合は、代わりに `-D_POSIX_C_SOURCE=200112L
 一覧を見る:
 
 ```bash
-python3 agent-clangir-doc-and-script/polybench/run_clangir_polybench.py --list
+python3 clangir-polybench/run_clangir_polybench.py --list
 ```
 
 `atax` を build して実行する:
 
 ```bash
-python3 agent-clangir-doc-and-script/polybench/run_clangir_polybench.py atax --run
+python3 clangir-polybench/run_clangir_polybench.py atax --run
 ```
 
 `atax` を timing 付きで実行する:
 
 ```bash
-python3 agent-clangir-doc-and-script/polybench/run_clangir_polybench.py atax --run --time
+python3 clangir-polybench/run_clangir_polybench.py atax --run --time
 ```
 
 `atax` の LLVM IR を出す:
 
 ```bash
-python3 agent-clangir-doc-and-script/polybench/run_clangir_polybench.py atax --emit llvm
+python3 clangir-polybench/run_clangir_polybench.py atax --emit llvm
 ```
 
 `atax` の CIR を出す:
 
 ```bash
-python3 agent-clangir-doc-and-script/polybench/run_clangir_polybench.py atax --emit cir
+python3 clangir-polybench/run_clangir_polybench.py atax --emit cir
 ```
 
 全 benchmark を build する:
 
 ```bash
-python3 agent-clangir-doc-and-script/polybench/run_clangir_polybench.py --all
+python3 clangir-polybench/run_clangir_polybench.py --all
 ```
 
 全 benchmark を build し、失敗があっても継続する:
 
 ```bash
-python3 agent-clangir-doc-and-script/polybench/run_clangir_polybench.py --all --keep-going
+python3 clangir-polybench/run_clangir_polybench.py --all --keep-going
 ```
 
 ## よく使うオプション
@@ -106,7 +106,7 @@ python3 agent-clangir-doc-and-script/polybench/run_clangir_polybench.py --all --
 - `--extra-cflag FLAG`
   - 手で追加フラグを足す
 - `--output-dir DIR`
-  - 出力先を変える。既定値は `agent-clangir-doc-and-script/polybench/output`
+  - 出力先を変える。既定値は `clangir-polybench/output`
 - `--print-cmd`
   - 実行前に clang コマンドを表示する
 
